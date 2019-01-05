@@ -1,4 +1,5 @@
 import argparse
+import os
 
 import cv2
 import numpy as np
@@ -26,9 +27,8 @@ def get_feature_from_img(img_path):
     return f1
 
 
-f1 = get_feature_from_img('/img.jpg')
+f1 = get_feature_from_img(os.getenv('IMGPATH','/home/zzx/facedata/photo_2019-01-05_12-43-40.jpg'))
 print(f1)
-# f3 = get_feature_from_img('/home/zzx/github.com/otrewyi191/MSCELEB1M-GenImage/low_images/m.04xzm/354_o0MpowuG-FaceId-0.jpg')
 
 
 
