@@ -42,7 +42,9 @@ class FormatData(facenet_pb2_grpc.GetEmbeddingServicer):
         # predict
         feature = model.get_feature(reshape)
         print(feature)
-        return facenet_pb2.EmbeddingMessage()
+
+        embedding_message = facenet_pb2.EmbeddingMessage(embedding=feature.tobytes(),dim=(feature.shape))
+        return embedding_message
 
 
 def serve():

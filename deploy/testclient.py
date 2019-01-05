@@ -52,8 +52,15 @@ def run():
 
 
     response = client.Get(image_message)
-    print("received: ")
-    print(response)
+
+    embedding = response.embedding
+    embedding = np.frombuffer(embedding,dtype=np.float32)
+    embedding = embedding.reshape(list(response.dim))
+
+
+    print("embedding: ")
+    print(embedding)
+    print(embedding.shape)
 
 
 if __name__ == '__main__':

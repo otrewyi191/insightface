@@ -8,8 +8,8 @@ message ImageMessage{
 }
 
 message EmbeddingMessage{
-      bool  isface = 1;
-      bytes  embedding = 2;
+      bytes  embedding = 1;
+      repeated int32  dim = 2;
 }
 
 service GetEmbedding{
