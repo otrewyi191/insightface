@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-protoc facenet.proto --python_out=.
+python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. facenet.proto
