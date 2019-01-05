@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package image;
+
+message ImageMessage{
+      bytes  b64image = 1;
+}
+
+message FaceMessage{
+      bytes  bbox = 1;
+      bytes  aliged_image = 2;
+}
+
+service GetFace{
+    rpc Get(ImageMessage) returns (FaceMessage){}
+}
