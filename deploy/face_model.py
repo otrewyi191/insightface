@@ -93,17 +93,25 @@ class FaceModel:
     if bbox.shape[0]==0:
       return None
     # bbox: face location
-    bbox.shape[0]
-    bbox = bbox[0,0:4]
-    points = points[0,:].reshape((2,5)).T
-    #print(bbox)
-    #print(points)
+    face_num = bbox.shape[0]
 
-    # MTCNN cut face
-    nimg = face_preprocess.preprocess(face_img, bbox, points, image_size='112,112')
-    nimg = cv2.cvtColor(nimg, cv2.COLOR_BGR2RGB)
-    aligned = np.transpose(nimg, (2,0,1))
-    return bbox,aligned
+    faces = []
+    for i in range(face_num):
+      bbox_tmp = bbox[i,0:4]
+      points_tmp = points[i,:].reshape((2,5)).T
+      #print(bbox)
+      #print(points)
+
+      # MTCNN cut face
+      nimg = face_preprocess.preprocess(face_img, bbox_tmp, points_tmp, image_size='112,112')
+      nimg = cv2.cvtColor(nimg, cv2.COLOR_BGR2RGB)
+      aligned = np.transpose(nimg, (2,0,1))
+
+      bbox_tmp = bbox_tmp.astype(np.int32)
+      # bbox,aliged pair for each face
+      faces.append((bbox_tmp,aligned))
+
+    return faces
 
   def get_feature(self, aligned):
     input_blob = np.expand_dims(aligned, axis=0)

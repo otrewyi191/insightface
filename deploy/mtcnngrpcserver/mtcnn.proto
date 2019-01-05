@@ -8,8 +8,10 @@ message ImageMessage{
 
 message FaceMessage{
     message Face{
-      bytes  bbox = 1;
-      bytes  aliged_image = 2;
+      repeated int32  bbox = 1;
+      repeated int32  image_dim = 2;
+      bytes  aliged_image = 3;
+
       }
       repeated Face faces = 1;
 }

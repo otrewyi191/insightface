@@ -28,7 +28,6 @@ def run():
 
     image_message = mtcnn_pb2.ImageMessage(b64image=image )
 
-
     response = client.Get(image_message)
     print("received: ")
     print(response)

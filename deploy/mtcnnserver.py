@@ -46,11 +46,18 @@ class FormatData(mtcnn_pb2_grpc.GetFaceServicer):
 
         image = cv2.imdecode(np.fromstring(decode, dtype=np.uint8), -1)
         # show_numpy_img(image)
-        bbox, aligned = model.get_face(image)
+        faces = model.get_face(image)
+
+        face_message = mtcnn_pb2.FaceMessage()
+        for face in faces:
+            face_proto = face_message.faces.add()
+            bbox,image = face
+            face_proto.bbox.extend(list(bbox))
+            face_proto.aliged_image=image.tobytes()
+            face_proto.image_dim.extend(list(image.shape))
 
 
-        embedding_message = mtcnn_pb2.ImageMessage()
-        return embedding_message
+        return face_message
 
 
 def serve():
