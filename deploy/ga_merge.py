@@ -2,10 +2,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import sys
-import os
 import argparse
-import numpy as np
+
 import mxnet as mx
 
 parser = argparse.ArgumentParser(description='merge age and gender models')

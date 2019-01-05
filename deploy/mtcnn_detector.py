@@ -1,17 +1,18 @@
 # coding: utf-8
+import math
 import os
+from itertools import repeat
+
+import cv2
 import mxnet as mx
 import numpy as np
-import math
-import cv2
-from multiprocessing import Pool
-from itertools import repeat
+
 try:
     from itertools import izip
 except ImportError:
     izip = zip
 
-from helper import nms, adjust_input, generate_bbox, detect_first_stage_warpper
+from helper import nms, adjust_input, detect_first_stage_warpper
 
 class MtcnnDetector(object):
     """

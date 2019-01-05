@@ -1,8 +1,9 @@
-import face_model
 import argparse
+
 import cv2
-import sys
 import numpy as np
+
+import face_model
 
 parser = argparse.ArgumentParser(description='face model test')
 # general

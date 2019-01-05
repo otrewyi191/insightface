@@ -2,22 +2,18 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from scipy import misc
-import sys
 import os
-import argparse
-#import tensorflow as tf
-import numpy as np
-import mxnet as mx
-import random
+import sys
+
 import cv2
+import mxnet as mx
+# import tensorflow as tf
+import numpy as np
 import sklearn
-from sklearn.decomposition import PCA
-from time import sleep
-from easydict import EasyDict as edict
+
 from mtcnn_detector import MtcnnDetector
+
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src', 'common'))
-import face_image
 import face_preprocess
 
 
