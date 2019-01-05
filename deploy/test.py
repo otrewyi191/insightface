@@ -20,17 +20,26 @@ args = parser.parse_args()
 model = face_model.FaceModel(args)
 
 
+def show_numpy_img(npyimg):
+    img = np.transpose(npyimg, (1,2,0))
+    img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    cv2.imshow('Color image', img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
 def get_feature_from_img(img_path):
     img = cv2.imread(img_path)
     img = model.get_input(img)
+
+    show_numpy_img(img)
+
     f1 = model.get_feature(img)
     return f1
 
 
-f1 = get_feature_from_img(os.getenv('IMGPATH','/home/zzx/facedata/photo_2019-01-05_12-43-40.jpg'))
+f1 = get_feature_from_img(os.getenv('IMGPATH', '/home/zzx/facedata/photo_2019-01-05_12-43-40.jpg'))
 print(f1)
-
-
 
 # sim = np.dot(f3, f1.T)
 # print(sim)
