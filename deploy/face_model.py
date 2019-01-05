@@ -9,7 +9,8 @@ import cv2
 import mxnet as mx
 # import tensorflow as tf
 import numpy as np
-import sklearn
+from sklearn import preprocessing
+
 
 from mtcnn_detector import MtcnnDetector
 
@@ -88,7 +89,7 @@ class FaceModel:
     db = mx.io.DataBatch(data=(data,))
     self.model.forward(db, is_train=False)
     embedding = self.model.get_outputs()[0].asnumpy()
-    embedding = sklearn.preprocessing.normalize(embedding).flatten()
+    embedding = preprocessing.normalize(embedding).flatten()
     return embedding
 
   def get_ga(self, aligned):
