@@ -28,6 +28,15 @@ args = parser.parse_args()
 
 model = face_model.FaceModel(args)
 
+
+def show_numpy_img(npyimg):
+    # img = np.transpose(npyimg, (1,2,0))
+    # img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    cv2.imshow('Color image', npyimg)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
 class FormatData(mtcnn_pb2_grpc.GetFaceServicer):
     def Get(self, request, context):
 
@@ -36,6 +45,9 @@ class FormatData(mtcnn_pb2_grpc.GetFaceServicer):
         decode = base64.b64decode(b64image)
 
         image = cv2.imdecode(np.fromstring(decode, dtype=np.uint8), -1)
+        # show_numpy_img(image)
+
+
 
         embedding_message = mtcnn_pb2.ImageMessage()
         return embedding_message
