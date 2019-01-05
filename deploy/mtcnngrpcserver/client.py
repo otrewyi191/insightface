@@ -13,7 +13,7 @@ _PORT = '8080'
 
 def get_b64image():
 
-    imgpath='/home/zzx/facedata/photo_2019-01-05_13-03-07.jpg'
+    imgpath='/home/zzx/下载/20180515105213848.jpg'
     with open(imgpath,'r') as f:
         data = f.read()
         encode = base64.b64encode(data)

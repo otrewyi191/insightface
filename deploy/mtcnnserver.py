@@ -46,7 +46,7 @@ class FormatData(mtcnn_pb2_grpc.GetFaceServicer):
 
         image = cv2.imdecode(np.fromstring(decode, dtype=np.uint8), -1)
         # show_numpy_img(image)
-
+        bbox, aligned = model.get_face(image)
 
 
         embedding_message = mtcnn_pb2.ImageMessage()

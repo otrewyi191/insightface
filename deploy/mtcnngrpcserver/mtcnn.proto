@@ -7,8 +7,11 @@ message ImageMessage{
 }
 
 message FaceMessage{
+    message Face{
       bytes  bbox = 1;
       bytes  aliged_image = 2;
+      }
+      repeated Face faces = 1;
 }
 
 service GetFace{

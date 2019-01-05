@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='image',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0bmtcnn.proto\x12\x05image\" \n\x0cImageMessage\x12\x10\n\x08\x62\x36\x34image\x18\x01 \x01(\x0c\"1\n\x0b\x46\x61\x63\x65Message\x12\x0c\n\x04\x62\x62ox\x18\x01 \x01(\x0c\x12\x14\n\x0c\x61liged_image\x18\x02 \x01(\x0c\x32;\n\x07GetFace\x12\x30\n\x03Get\x12\x13.image.ImageMessage\x1a\x12.image.FaceMessage\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0bmtcnn.proto\x12\x05image\" \n\x0cImageMessage\x12\x10\n\x08\x62\x36\x34image\x18\x01 \x01(\x0c\"a\n\x0b\x46\x61\x63\x65Message\x12&\n\x05\x66\x61\x63\x65s\x18\x01 \x03(\x0b\x32\x17.image.FaceMessage.Face\x1a*\n\x04\x46\x61\x63\x65\x12\x0c\n\x04\x62\x62ox\x18\x01 \x01(\x0c\x12\x14\n\x0c\x61liged_image\x18\x02 \x01(\x0c\x32;\n\x07GetFace\x12\x30\n\x03Get\x12\x13.image.ImageMessage\x1a\x12.image.FaceMessage\"\x00\x62\x06proto3')
 )
 
 
@@ -56,22 +56,22 @@ _IMAGEMESSAGE = _descriptor.Descriptor(
 )
 
 
-_FACEMESSAGE = _descriptor.Descriptor(
-  name='FaceMessage',
-  full_name='image.FaceMessage',
+_FACEMESSAGE_FACE = _descriptor.Descriptor(
+  name='Face',
+  full_name='image.FaceMessage.Face',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='bbox', full_name='image.FaceMessage.bbox', index=0,
+      name='bbox', full_name='image.FaceMessage.Face.bbox', index=0,
       number=1, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='aliged_image', full_name='image.FaceMessage.aliged_image', index=1,
+      name='aliged_image', full_name='image.FaceMessage.Face.aliged_image', index=1,
       number=2, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -89,10 +89,42 @@ _FACEMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=56,
-  serialized_end=105,
+  serialized_start=111,
+  serialized_end=153,
 )
 
+_FACEMESSAGE = _descriptor.Descriptor(
+  name='FaceMessage',
+  full_name='image.FaceMessage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='faces', full_name='image.FaceMessage.faces', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_FACEMESSAGE_FACE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=56,
+  serialized_end=153,
+)
+
+_FACEMESSAGE_FACE.containing_type = _FACEMESSAGE
+_FACEMESSAGE.fields_by_name['faces'].message_type = _FACEMESSAGE_FACE
 DESCRIPTOR.message_types_by_name['ImageMessage'] = _IMAGEMESSAGE
 DESCRIPTOR.message_types_by_name['FaceMessage'] = _FACEMESSAGE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -105,11 +137,19 @@ ImageMessage = _reflection.GeneratedProtocolMessageType('ImageMessage', (_messag
 _sym_db.RegisterMessage(ImageMessage)
 
 FaceMessage = _reflection.GeneratedProtocolMessageType('FaceMessage', (_message.Message,), dict(
+
+  Face = _reflection.GeneratedProtocolMessageType('Face', (_message.Message,), dict(
+    DESCRIPTOR = _FACEMESSAGE_FACE,
+    __module__ = 'mtcnn_pb2'
+    # @@protoc_insertion_point(class_scope:image.FaceMessage.Face)
+    ))
+  ,
   DESCRIPTOR = _FACEMESSAGE,
   __module__ = 'mtcnn_pb2'
   # @@protoc_insertion_point(class_scope:image.FaceMessage)
   ))
 _sym_db.RegisterMessage(FaceMessage)
+_sym_db.RegisterMessage(FaceMessage.Face)
 
 
 
@@ -119,8 +159,8 @@ _GETFACE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=107,
-  serialized_end=166,
+  serialized_start=155,
+  serialized_end=214,
   methods=[
   _descriptor.MethodDescriptor(
     name='Get',
