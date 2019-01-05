@@ -16,10 +16,10 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='facenet.proto',
-  package='image',
+  package='deploy.grpcserver.facenet',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\rfacenet.proto\x12\x05image\"*\n\x0cImageMessage\x12\r\n\x05image\x18\x01 \x01(\x0c\x12\x0b\n\x03\x64im\x18\x02 \x03(\x05\"2\n\x10\x45mbeddingMessage\x12\x11\n\tembedding\x18\x01 \x01(\x0c\x12\x0b\n\x03\x64im\x18\x02 \x03(\x05\x32\x45\n\x0cGetEmbedding\x12\x35\n\x03Get\x12\x13.image.ImageMessage\x1a\x17.image.EmbeddingMessage\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\rfacenet.proto\x12\x19\x64\x65ploy.grpcserver.facenet\"*\n\x0cImageMessage\x12\r\n\x05image\x18\x01 \x01(\x0c\x12\x0b\n\x03\x64im\x18\x02 \x03(\x05\"2\n\x10\x45mbeddingMessage\x12\x11\n\tembedding\x18\x01 \x01(\x0c\x12\x0b\n\x03\x64im\x18\x02 \x03(\x05\x32m\n\x0cGetEmbedding\x12]\n\x03Get\x12\'.deploy.grpcserver.facenet.ImageMessage\x1a+.deploy.grpcserver.facenet.EmbeddingMessage\"\x00\x62\x06proto3')
 )
 
 
@@ -27,20 +27,20 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _IMAGEMESSAGE = _descriptor.Descriptor(
   name='ImageMessage',
-  full_name='image.ImageMessage',
+  full_name='deploy.grpcserver.facenet.ImageMessage',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='image', full_name='image.ImageMessage.image', index=0,
+      name='image', full_name='deploy.grpcserver.facenet.ImageMessage.image', index=0,
       number=1, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='dim', full_name='image.ImageMessage.dim', index=1,
+      name='dim', full_name='deploy.grpcserver.facenet.ImageMessage.dim', index=1,
       number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -58,27 +58,27 @@ _IMAGEMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24,
-  serialized_end=66,
+  serialized_start=44,
+  serialized_end=86,
 )
 
 
 _EMBEDDINGMESSAGE = _descriptor.Descriptor(
   name='EmbeddingMessage',
-  full_name='image.EmbeddingMessage',
+  full_name='deploy.grpcserver.facenet.EmbeddingMessage',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='embedding', full_name='image.EmbeddingMessage.embedding', index=0,
+      name='embedding', full_name='deploy.grpcserver.facenet.EmbeddingMessage.embedding', index=0,
       number=1, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='dim', full_name='image.EmbeddingMessage.dim', index=1,
+      name='dim', full_name='deploy.grpcserver.facenet.EmbeddingMessage.dim', index=1,
       number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -96,8 +96,8 @@ _EMBEDDINGMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=68,
-  serialized_end=118,
+  serialized_start=88,
+  serialized_end=138,
 )
 
 DESCRIPTOR.message_types_by_name['ImageMessage'] = _IMAGEMESSAGE
@@ -107,14 +107,14 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 ImageMessage = _reflection.GeneratedProtocolMessageType('ImageMessage', (_message.Message,), dict(
   DESCRIPTOR = _IMAGEMESSAGE,
   __module__ = 'facenet_pb2'
-  # @@protoc_insertion_point(class_scope:image.ImageMessage)
+  # @@protoc_insertion_point(class_scope:deploy.grpcserver.facenet.ImageMessage)
   ))
 _sym_db.RegisterMessage(ImageMessage)
 
 EmbeddingMessage = _reflection.GeneratedProtocolMessageType('EmbeddingMessage', (_message.Message,), dict(
   DESCRIPTOR = _EMBEDDINGMESSAGE,
   __module__ = 'facenet_pb2'
-  # @@protoc_insertion_point(class_scope:image.EmbeddingMessage)
+  # @@protoc_insertion_point(class_scope:deploy.grpcserver.facenet.EmbeddingMessage)
   ))
 _sym_db.RegisterMessage(EmbeddingMessage)
 
@@ -122,16 +122,16 @@ _sym_db.RegisterMessage(EmbeddingMessage)
 
 _GETEMBEDDING = _descriptor.ServiceDescriptor(
   name='GetEmbedding',
-  full_name='image.GetEmbedding',
+  full_name='deploy.grpcserver.facenet.GetEmbedding',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=120,
-  serialized_end=189,
+  serialized_start=140,
+  serialized_end=249,
   methods=[
   _descriptor.MethodDescriptor(
     name='Get',
-    full_name='image.GetEmbedding.Get',
+    full_name='deploy.grpcserver.facenet.GetEmbedding.Get',
     index=0,
     containing_service=None,
     input_type=_IMAGEMESSAGE,

@@ -16,10 +16,10 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='mtcnn.proto',
-  package='image',
+  package='deploy.mtcngrpcserver.mtcnn',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0bmtcnn.proto\x12\x05image\" \n\x0cImageMessage\x12\x10\n\x08\x62\x36\x34image\x18\x01 \x01(\x0c\"t\n\x0b\x46\x61\x63\x65Message\x12&\n\x05\x66\x61\x63\x65s\x18\x01 \x03(\x0b\x32\x17.image.FaceMessage.Face\x1a=\n\x04\x46\x61\x63\x65\x12\x0c\n\x04\x62\x62ox\x18\x01 \x03(\x05\x12\x11\n\timage_dim\x18\x02 \x03(\x05\x12\x14\n\x0c\x61liged_image\x18\x03 \x01(\x0c\x32;\n\x07GetFace\x12\x30\n\x03Get\x12\x13.image.ImageMessage\x1a\x12.image.FaceMessage\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0bmtcnn.proto\x12\x1b\x64\x65ploy.mtcngrpcserver.mtcnn\" \n\x0cImageMessage\x12\x10\n\x08\x62\x36\x34image\x18\x01 \x01(\x0c\"\x8a\x01\n\x0b\x46\x61\x63\x65Message\x12<\n\x05\x66\x61\x63\x65s\x18\x01 \x03(\x0b\x32-.deploy.mtcngrpcserver.mtcnn.FaceMessage.Face\x1a=\n\x04\x46\x61\x63\x65\x12\x0c\n\x04\x62\x62ox\x18\x01 \x03(\x05\x12\x11\n\timage_dim\x18\x02 \x03(\x05\x12\x14\n\x0c\x61liged_image\x18\x03 \x01(\x0c\x32g\n\x07GetFace\x12\\\n\x03Get\x12).deploy.mtcngrpcserver.mtcnn.ImageMessage\x1a(.deploy.mtcngrpcserver.mtcnn.FaceMessage\"\x00\x62\x06proto3')
 )
 
 
@@ -27,13 +27,13 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _IMAGEMESSAGE = _descriptor.Descriptor(
   name='ImageMessage',
-  full_name='image.ImageMessage',
+  full_name='deploy.mtcngrpcserver.mtcnn.ImageMessage',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='b64image', full_name='image.ImageMessage.b64image', index=0,
+      name='b64image', full_name='deploy.mtcngrpcserver.mtcnn.ImageMessage.b64image', index=0,
       number=1, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -51,34 +51,34 @@ _IMAGEMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22,
-  serialized_end=54,
+  serialized_start=44,
+  serialized_end=76,
 )
 
 
 _FACEMESSAGE_FACE = _descriptor.Descriptor(
   name='Face',
-  full_name='image.FaceMessage.Face',
+  full_name='deploy.mtcngrpcserver.mtcnn.FaceMessage.Face',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='bbox', full_name='image.FaceMessage.Face.bbox', index=0,
+      name='bbox', full_name='deploy.mtcngrpcserver.mtcnn.FaceMessage.Face.bbox', index=0,
       number=1, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='image_dim', full_name='image.FaceMessage.Face.image_dim', index=1,
+      name='image_dim', full_name='deploy.mtcngrpcserver.mtcnn.FaceMessage.Face.image_dim', index=1,
       number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='aliged_image', full_name='image.FaceMessage.Face.aliged_image', index=2,
+      name='aliged_image', full_name='deploy.mtcngrpcserver.mtcnn.FaceMessage.Face.aliged_image', index=2,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -96,19 +96,19 @@ _FACEMESSAGE_FACE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=111,
-  serialized_end=172,
+  serialized_start=156,
+  serialized_end=217,
 )
 
 _FACEMESSAGE = _descriptor.Descriptor(
   name='FaceMessage',
-  full_name='image.FaceMessage',
+  full_name='deploy.mtcngrpcserver.mtcnn.FaceMessage',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='faces', full_name='image.FaceMessage.faces', index=0,
+      name='faces', full_name='deploy.mtcngrpcserver.mtcnn.FaceMessage.faces', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -126,8 +126,8 @@ _FACEMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=56,
-  serialized_end=172,
+  serialized_start=79,
+  serialized_end=217,
 )
 
 _FACEMESSAGE_FACE.containing_type = _FACEMESSAGE
@@ -139,7 +139,7 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 ImageMessage = _reflection.GeneratedProtocolMessageType('ImageMessage', (_message.Message,), dict(
   DESCRIPTOR = _IMAGEMESSAGE,
   __module__ = 'mtcnn_pb2'
-  # @@protoc_insertion_point(class_scope:image.ImageMessage)
+  # @@protoc_insertion_point(class_scope:deploy.mtcngrpcserver.mtcnn.ImageMessage)
   ))
 _sym_db.RegisterMessage(ImageMessage)
 
@@ -148,12 +148,12 @@ FaceMessage = _reflection.GeneratedProtocolMessageType('FaceMessage', (_message.
   Face = _reflection.GeneratedProtocolMessageType('Face', (_message.Message,), dict(
     DESCRIPTOR = _FACEMESSAGE_FACE,
     __module__ = 'mtcnn_pb2'
-    # @@protoc_insertion_point(class_scope:image.FaceMessage.Face)
+    # @@protoc_insertion_point(class_scope:deploy.mtcngrpcserver.mtcnn.FaceMessage.Face)
     ))
   ,
   DESCRIPTOR = _FACEMESSAGE,
   __module__ = 'mtcnn_pb2'
-  # @@protoc_insertion_point(class_scope:image.FaceMessage)
+  # @@protoc_insertion_point(class_scope:deploy.mtcngrpcserver.mtcnn.FaceMessage)
   ))
 _sym_db.RegisterMessage(FaceMessage)
 _sym_db.RegisterMessage(FaceMessage.Face)
@@ -162,16 +162,16 @@ _sym_db.RegisterMessage(FaceMessage.Face)
 
 _GETFACE = _descriptor.ServiceDescriptor(
   name='GetFace',
-  full_name='image.GetFace',
+  full_name='deploy.mtcngrpcserver.mtcnn.GetFace',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=174,
-  serialized_end=233,
+  serialized_start=219,
+  serialized_end=322,
   methods=[
   _descriptor.MethodDescriptor(
     name='Get',
-    full_name='image.GetFace.Get',
+    full_name='deploy.mtcngrpcserver.mtcnn.GetFace.Get',
     index=0,
     containing_service=None,
     input_type=_IMAGEMESSAGE,

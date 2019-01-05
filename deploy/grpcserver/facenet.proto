@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package image;
+package deploy.grpcserver.facenet;
 
 message ImageMessage{
       bytes  image = 1;

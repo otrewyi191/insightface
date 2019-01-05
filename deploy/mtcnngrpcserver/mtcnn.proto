@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package image;
+package deploy.mtcngrpcserver.mtcnn;
 
 message ImageMessage{
       bytes  b64image = 1;

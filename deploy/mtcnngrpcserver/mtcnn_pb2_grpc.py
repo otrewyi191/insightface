@@ -15,7 +15,7 @@ class GetFaceStub(object):
       channel: A grpc.Channel.
     """
     self.Get = channel.unary_unary(
-        '/image.GetFace/Get',
+        '/deploy.mtcngrpcserver.mtcnn.GetFace/Get',
         request_serializer=mtcnn__pb2.ImageMessage.SerializeToString,
         response_deserializer=mtcnn__pb2.FaceMessage.FromString,
         )
@@ -42,5 +42,5 @@ def add_GetFaceServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'image.GetFace', rpc_method_handlers)
+      'deploy.mtcngrpcserver.mtcnn.GetFace', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

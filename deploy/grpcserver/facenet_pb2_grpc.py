@@ -15,7 +15,7 @@ class GetEmbeddingStub(object):
       channel: A grpc.Channel.
     """
     self.Get = channel.unary_unary(
-        '/image.GetEmbedding/Get',
+        '/deploy.grpcserver.facenet.GetEmbedding/Get',
         request_serializer=facenet__pb2.ImageMessage.SerializeToString,
         response_deserializer=facenet__pb2.EmbeddingMessage.FromString,
         )
@@ -42,5 +42,5 @@ def add_GetEmbeddingServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'image.GetEmbedding', rpc_method_handlers)
+      'deploy.grpcserver.facenet.GetEmbedding', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

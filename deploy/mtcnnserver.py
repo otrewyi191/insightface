@@ -13,7 +13,7 @@ import face_model
 from mtcnngrpcserver import mtcnn_pb2_grpc, mtcnn_pb2
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 _HOST = '0.0.0.0'
-_PORT = '8080'
+_PORT = '8081'
 
 parser = argparse.ArgumentParser(description='face model test')
 # general
