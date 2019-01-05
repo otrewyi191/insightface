@@ -11,7 +11,7 @@ import face_model
 
 from grpcserver import facenet_pb2_grpc, facenet_pb2
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
-_HOST = '127.0.0.1'
+_HOST = '0.0.0.0'
 _PORT = '8080'
 
 parser = argparse.ArgumentParser(description='face model test')
