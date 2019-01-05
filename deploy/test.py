@@ -19,32 +19,18 @@ args = parser.parse_args()
 model = face_model.FaceModel(args)
 
 
-img = cv2.imread('/img.jpg')
-img = model.get_input(img)
+def get_feature_from_img(img_path):
+    img = cv2.imread(img_path)
+    img = model.get_input(img)
+    f1 = model.get_feature(img)
+    return f1
 
-# img = np.transpose(img,[1,2,0])
-# cv2.imshow('Color image', img)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
 
-f1 = model.get_feature(img)
-print(f1[0:10])
-# gender, age = model.get_ga(img)
-# print(gender)
-# print(age)
-# sys.exit(0)
-# img = cv2.imread('/home/zzx/facedata/photo_2019-01-05_12-43-29.jpg')
-# img = model.get_input(img)
-# f2 = model.get_feature(img)
-# dist = np.sum(np.square(f1-f2))
+f1 = get_feature_from_img('/img.jpg')
+print(f1)
+# f3 = get_feature_from_img('/home/zzx/github.com/otrewyi191/MSCELEB1M-GenImage/low_images/m.04xzm/354_o0MpowuG-FaceId-0.jpg')
 
-img = cv2.imread('/home/zzx/github.com/otrewyi191/MSCELEB1M-GenImage/low_images/m.04xzm/354_o0MpowuG-FaceId-0.jpg')
-# img = cv2.imread('/home/zzx/facedata/photo_2019-01-05_13-48-45.jpg')
-img = model.get_input(img)
-f3 = model.get_feature(img)
 
-# print(dist)
-sim = np.dot(f3, f1.T)
-print(sim)
-#diff = np.subtract(source_feature, target_feature)
-#dist = np.sum(np.square(diff),1)
+
+# sim = np.dot(f3, f1.T)
+# print(sim)
