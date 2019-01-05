@@ -74,10 +74,13 @@ class FaceModel:
     bbox, points = ret
     if bbox.shape[0]==0:
       return None
+    # bbox: face location
     bbox = bbox[0,0:4]
     points = points[0,:].reshape((2,5)).T
     #print(bbox)
     #print(points)
+
+    # MTCNN cut face
     nimg = face_preprocess.preprocess(face_img, bbox, points, image_size='112,112')
     nimg = cv2.cvtColor(nimg, cv2.COLOR_BGR2RGB)
     aligned = np.transpose(nimg, (2,0,1))
