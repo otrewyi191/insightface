@@ -19,7 +19,7 @@ args = parser.parse_args()
 model = face_model.FaceModel(args)
 
 
-img = cv2.imread('/home/zzx/facedata/photo_2019-01-05_12-43-40.jpg')
+img = cv2.imread('/img.jpg')
 img = model.get_input(img)
 
 # img = np.transpose(img,[1,2,0])
