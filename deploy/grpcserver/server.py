@@ -13,6 +13,8 @@ _PORT = '8080'
 
 class FormatData(facenet_pb2_grpc.GetEmbeddingServicer):
     def Get(self, request, context):
+
+        # parse image to numpy array
         embedding = request.image
         nparr = np.frombuffer(embedding, dtype=np.uint8)
         shape = list(request.dim)
@@ -20,6 +22,8 @@ class FormatData(facenet_pb2_grpc.GetEmbeddingServicer):
         reshape = nparr.reshape(shape)
         print(reshape)
         print(reshape.shape)
+
+        # predict
         return facenet_pb2.EmbeddingMessage()
 
 

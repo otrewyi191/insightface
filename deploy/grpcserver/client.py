@@ -1,5 +1,7 @@
 # ! /usr/bin/env python
 # -*- coding: utf-8 -*-
+import cv2
+
 import grpc
 import facenet_pb2,facenet_pb2_grpc
 import numpy as np
@@ -21,12 +23,16 @@ def get_str():
     return message_image,shape
 
 
+def get_input_from_img(img_path):
+    img = cv2.imread(img_path)
+    img = model.get_input(img)
+
 def run():
     conn = grpc.insecure_channel(_HOST + ':' + _PORT)
     client = facenet_pb2_grpc.GetEmbeddingStub(channel=conn)
 
     image,shape = get_str()
-    image_message = facenet_pb2.ImageMessage(image=image,dim=[50,50,3])
+    image_message = facenet_pb2.ImageMessage(image=image, dim=[50, 50, 3])
 
 
     response = client.Get(image_message)
