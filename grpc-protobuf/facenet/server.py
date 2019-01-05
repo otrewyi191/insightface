@@ -4,6 +4,7 @@ import grpc
 import time
 from concurrent import futures
 import facenet_pb2,facenet_pb2_grpc
+import numpy as np
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 _HOST = '127.0.0.1'
@@ -12,8 +13,13 @@ _PORT = '8080'
 
 class FormatData(facenet_pb2_grpc.GetEmbeddingServicer):
     def Get(self, request, context):
-        str = request
-        print(str)
+        embedding = request.image
+        nparr = np.frombuffer(embedding, dtype=np.uint8)
+        shape = list(request.dim)
+
+        reshape = nparr.reshape(shape)
+        print(reshape)
+        print(reshape.shape)
         return facenet_pb2.EmbeddingMessage()
 
 

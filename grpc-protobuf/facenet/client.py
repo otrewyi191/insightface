@@ -16,14 +16,19 @@ def get_str():
     img_shape = img.shape
 
     message_image = img.tobytes()
+    shape = img.shape
     # message_image = np.ndarray.tostring(img)
-    return message_image
+    return message_image,shape
 
 
 def run():
     conn = grpc.insecure_channel(_HOST + ':' + _PORT)
     client = facenet_pb2_grpc.GetEmbeddingStub(channel=conn)
-    image_message = facenet_pb2.ImageMessage(image=get_str())
+
+    image,shape = get_str()
+    image_message = facenet_pb2.ImageMessage(image=image,dim=[50,50,3])
+
+
     response = client.Get(image_message)
     print("received: ")
     print(response)

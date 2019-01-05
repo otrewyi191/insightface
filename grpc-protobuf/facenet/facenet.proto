@@ -4,7 +4,7 @@ package image;
 
 message ImageMessage{
       bytes  image = 1;
-      int32  shape = 2;
+      repeated int32  dim = 2;
 }
 
 message EmbeddingMessage{
