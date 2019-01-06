@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import grpc
-import grpcserver.mtcnn.mtcnn_pb2
+import grpcserver.mtcnn.mtcnn_pb2,grpcserver.mtcnn.mtcnn_pb2_grpc
 import numpy as np
 import base64
 
