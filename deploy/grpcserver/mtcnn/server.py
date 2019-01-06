@@ -5,7 +5,6 @@ import time
 from concurrent import futures
 import mtcnn_pb2
 import mtcnn_pb2_grpc
-import numpy as np
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 _HOST = '127.0.0.1'

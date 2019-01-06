@@ -1,6 +1,5 @@
 import argparse
 import base64
-import os
 import time
 
 import cv2
@@ -10,7 +9,7 @@ from concurrent import futures
 
 import face_model
 
-from mtcnngrpcserver import mtcnn_pb2_grpc, mtcnn_pb2
+from grpcserver.mtcnn import mtcnn_pb2_grpc, mtcnn_pb2
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 _HOST = '0.0.0.0'
 _PORT = '8081'

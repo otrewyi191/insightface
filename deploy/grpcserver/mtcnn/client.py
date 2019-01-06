@@ -1,9 +1,8 @@
 # ! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import cv2
 
 import grpc
-import mtcnngrpcserver.mtcnn_pb2, mtcnngrpcserver.mtcnn_pb2_grpc
+import grpcserver.mtcnn.mtcnn_pb2
 import numpy as np
 import base64
 
@@ -20,11 +19,11 @@ def get_b64image():
 
 def run():
     conn = grpc.insecure_channel(MTCNN_HOST)
-    client = mtcnngrpcserver.mtcnn_pb2_grpc.GetFaceStub(channel=conn)
+    client = grpcserver.mtcnn.mtcnn_pb2_grpc.GetFaceStub(channel=conn)
 
     image = get_b64image()
 
-    image_message = mtcnngrpcserver.mtcnn_pb2.ImageMessage(b64image=image)
+    image_message = grpcserver.mtcnn.mtcnn_pb2.ImageMessage(b64image=image)
 
     response = client.Get(image_message)
 

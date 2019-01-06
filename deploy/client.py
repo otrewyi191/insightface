@@ -21,12 +21,12 @@ def get_b64image():
 
 def run():
     conn = grpc.insecure_channel(MTCNN_HOST)
-    from mtcnngrpcserver import mtcnn_pb2_grpc
+    from grpcserver.mtcnn import mtcnn_pb2_grpc
     client = mtcnn_pb2_grpc.GetFaceStub(channel=conn)
 
     image = get_b64image()
 
-    from mtcnngrpcserver import mtcnn_pb2
+    from grpcserver.mtcnn import mtcnn_pb2
     image_message = mtcnn_pb2.ImageMessage(b64image=image)
 
     response = client.Get(image_message)
