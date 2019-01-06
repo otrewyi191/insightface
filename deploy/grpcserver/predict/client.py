@@ -1,14 +1,16 @@
 # ! /usr/bin/env python
 # -*- coding: utf-8 -*-
+import os
 
 import grpc
 import grpcserver.arcface.facenet_pb2
+import grpcserver.arcface.facenet_pb2_grpc
 import grpcserver
 import base64
 
 
-MTCNN_HOST = '127.0.0.1:8081'
-ARCFACE_HOST = '127.0.0.1:8080'
+MTCNN_HOST = os.getenv('MTCNN_HOST','127.0.0.1:8081')
+ARCFACE_HOST = os.getenv('ARCFACE_HOST','127.0.0.1:8080')
 
 
 def get_b64image():
