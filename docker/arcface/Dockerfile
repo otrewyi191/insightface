@@ -16,4 +16,8 @@ RUN apt-get install -y libglib2.0-0 libxrender-dev libsm6 libxext6 \
 
 COPY . /arcface/
 
-WORKDIR /arcface
+RUN cp /arcface/scripts/*sh /
+
+ENV PYTHONPATH=/arcface/:/arcface/deploy/
+
+WORKDIR /

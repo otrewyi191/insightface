@@ -1,1 +1,1 @@
-docker build -t arcface -f Dockerfile ../..
+docker build -t arcface:allinone -f Dockerfile ../..
