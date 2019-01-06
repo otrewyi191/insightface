@@ -5,16 +5,14 @@ import cv2
 import grpc
 import numpy as np
 
-_HOST = '127.0.0.1'
-_PORT = '8080'
-
 import face_model
 
 from grpcserver.arcface import facenet_pb2_grpc, facenet_pb2
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
-_HOST = '127.0.0.1'
-_PORT = '8080'
+
+ARCFACE_HOST = os.getenv('ARCFACE_HOST','127.0.0.1:8080')
+
 
 parser = argparse.ArgumentParser(description='face model test')
 # general
@@ -43,7 +41,7 @@ def get_input_from_img(img_path):
     img = model.get_input(img)
 
 def run():
-    conn = grpc.insecure_channel(_HOST + ':' + _PORT)
+    conn = grpc.insecure_channel(ARCFACE_HOST)
     client = facenet_pb2_grpc.GetEmbeddingStub(channel=conn)
     image = get_numpy_from_img(os.getenv('IMGPATH', '/home/zzx/facedata/photo_2019-01-05_12-43-40.jpg'))
 
