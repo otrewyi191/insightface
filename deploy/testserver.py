@@ -1,15 +1,14 @@
 import argparse
-import os
 import time
 
-import cv2
 import grpc
 import numpy as np
 from concurrent import futures
 
 import face_model
 
-from grpcserver import facenet_pb2_grpc, facenet_pb2
+from grpcserver.arcface import facenet_pb2_grpc, facenet_pb2
+
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 _HOST = '0.0.0.0'
 _PORT = '8080'
@@ -43,7 +42,7 @@ class FormatData(facenet_pb2_grpc.GetEmbeddingServicer):
         feature = model.get_feature(reshape)
         print(feature)
 
-        embedding_message = facenet_pb2.EmbeddingMessage(embedding=feature.tobytes(),dim=(feature.shape))
+        embedding_message = facenet_pb2.EmbeddingMessage(embedding=feature.tobytes(), dim=(feature.shape))
         return embedding_message
 
 

@@ -10,7 +10,8 @@ _PORT = '8080'
 
 import face_model
 
-from grpcserver import facenet_pb2_grpc, facenet_pb2
+from grpcserver.arcface import facenet_pb2_grpc, facenet_pb2
+
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 _HOST = '127.0.0.1'
 _PORT = '8080'

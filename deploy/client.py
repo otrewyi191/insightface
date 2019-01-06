@@ -1,10 +1,9 @@
 # ! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import cv2
 
 import grpc
-import grpcserver.facenet_pb2,grpcserver.facenet_pb2_grpc
-import numpy as np
+import grpcserver.arcface.facenet_pb2
+import grpcserver
 import base64
 
 
@@ -39,9 +38,9 @@ def run():
 
         #
         conn = grpc.insecure_channel(ARCFACE_HOST)
-        client = grpcserver.facenet_pb2_grpc.GetEmbeddingStub(channel=conn)
+        client = grpcserver.arcface.facenet_pb2_grpc.GetEmbeddingStub(channel=conn)
 
-        from grpcserver import facenet_pb2
+        from grpcserver.arcface import facenet_pb2
         image_message = facenet_pb2.ImageMessage(image=aliged_image, dim=dim)
 
         response = client.Get(image_message)
