@@ -1,3 +1,4 @@
 ./models/model-r50-am-lfw
 ./datasets
 ./docker
+test
